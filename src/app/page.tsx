@@ -11,10 +11,12 @@ export default function Home() {
   return (
     <main className="bg-neutral-950 text-white min-h-screen selection:bg-blue-500 selection:text-white">
       <Navbar />
+
       <div className="pt-24 space-y-12">
         <Hero />
         <Projects />
         <Skills />
+        <Certificates />
         <Contact />
       </div>
     </main>

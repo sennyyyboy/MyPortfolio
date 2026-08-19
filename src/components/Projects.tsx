@@ -1,100 +1,126 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import { Network } from 'lucide-react';
 
-function GithubIcon({ className = '' }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844a9.58 9.58 0 0 1 2.504.337c1.909-1.294 2.748-1.025 2.748-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .267.18.578.688.48A10.001 10.001 0 0 0 22 12C22 6.477 17.523 2 12 2Z" />
-    </svg>
-  );
-}
+const GithubIcon = ({ size = 16 }: { size?: number }) => (
+  <svg
+    width={size}
+    height={size}
+    fill="currentColor"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+  >
+    <path
+      fillRule="evenodd"
+      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688.103-.253.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+      clipRule="evenodd"
+    />
+  </svg>
+);
 
 const projects = [
   {
-    title: 'TimeMapr',
-    desc: 'Interactive timeline visualization platform designed for students and educators to map out historical sequences.',
-    tech: ['React', 'Next.js', 'Tailwind CSS'],
-    demo: 'https://example.com',
-    github: 'https://github.com',
+    title: 'Smart Medication Dispensing System',
+    description:
+      'Computer Engineering project involving an automated medication dispensing system using microcontrollers, sensors, timed operations, and system monitoring.',
+    tags: ['ESP32', 'Arduino', 'C++', 'IoT', 'Sensors'],
+    githubUrl: 'https://github.com/sennyyyboy',
   },
   {
-    title: 'Smart Dispenser System',
-    desc: 'Microcontroller-driven medication manager integrated with real-time web scheduling interface.',
-    tech: ['ESP32', 'Node.js', 'WebSockets'],
-    demo: 'https://example.com',
-    github: 'https://github.com',
+    title: 'Dr. Jun Villaflores DMD - Ortho App',
+    description:
+      'Clinic management system designed to handle patient check-ins, time tracking, and patient records through a web-based application.',
+    tags: ['Python', 'JavaScript', 'Database', 'Web System'],
+    githubUrl: 'https://github.com/Nyarkier/ortho-system.git',
+  },
+  {
+    title: 'TimeMapr',
+    description:
+      'Interactive timeline visualization platform designed for students and educators to organize and explore historical sequences.',
+    tags: ['React', 'Next.js', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/sennyyyboy',
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="max-w-6xl mx-auto px-6 py-20">
-      <h2 className="text-3xl font-bold text-white mb-10 tracking-tight">
-        Featured Projects
-      </h2>
+    <section
+      id="projects"
+      className="max-w-5xl mx-auto px-6 py-12"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
+      >
+        <div className="mb-8">
+          <span className="inline-flex items-center gap-2 text-xs font-mono text-blue-400 uppercase tracking-widest">
+            <Network className="w-3.5 h-3.5" />
+            Technical Work
+          </span>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projects.map((proj, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.3 }}
-            className="p-6 bg-neutral-900/60 rounded-2xl border border-neutral-800 flex flex-col justify-between"
-          >
-            <div>
-              <h3 className="text-xl font-bold text-white mb-2">
-                {proj.title}
-              </h3>
+          <h2 className="text-3xl font-bold text-white mt-2">
+            Featured Projects
+          </h2>
 
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                {proj.desc}
-              </p>
-            </div>
+          <p className="text-neutral-400 text-sm mt-3 max-w-2xl">
+            A collection of projects from my Computer Engineering background,
+            including embedded systems, IoT, software development, and
+            technical applications.
+          </p>
+        </div>
 
-            <div>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {proj.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-full font-mono"
-                  >
-                    {t}
-                  </span>
-                ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.1,
+              }}
+              className="p-6 border border-neutral-800 rounded-xl bg-neutral-900/50 hover:border-blue-500/30 hover:bg-neutral-900/70 transition flex flex-col justify-between"
+            >
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {project.title}
+                </h3>
+
+                <p className="text-neutral-400 text-sm leading-relaxed mb-4">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-1 text-xs rounded-md bg-neutral-800 text-neutral-300 border border-neutral-700/50"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div className="flex gap-4 border-t border-neutral-800 pt-4">
+              <div>
                 <a
-                  href={proj.demo}
+                  href={project.githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-1.5 text-sm text-white hover:text-blue-400 font-medium transition"
+                  className="inline-flex items-center gap-2 text-sm text-neutral-300 hover:text-white transition bg-neutral-800 hover:bg-neutral-700 px-3 py-1.5 rounded-lg border border-neutral-700"
                 >
-                  Live Demo <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-
-                <a
-                  href={proj.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition"
-                >
-                  Source <GithubIcon className="w-3.5 h-3.5" />
+                  <GithubIcon size={16} />
+                  Source Code
                 </a>
               </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }

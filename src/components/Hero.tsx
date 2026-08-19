@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail} from "lucide-react";
+import { ArrowRight, Mail, Network } from 'lucide-react';
 
 function GithubIcon({ className = '' }: { className?: string }) {
   return (
@@ -40,66 +40,80 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <span className="inline-block text-xs font-mono px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20 mb-6">
-          Available for Hire
+        {/* Status */}
+        <span className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20 mb-6">
+          <Network className="w-3.5 h-3.5" />
+          Aspiring Network Engineer
         </span>
 
+        {/* Main Heading */}
         <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight mb-6">
-          Building digital products, <br />
+          Building my career in{' '}
+          <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
-            web systems, and dynamic experiences.
+            networks, infrastructure, and technology.
           </span>
         </h1>
 
+        {/* Description */}
         <p className="text-gray-400 text-base md:text-lg max-w-2xl leading-relaxed mb-8">
-          Computer Engineering student & Developer focused on full-stack web
-          platforms, interactive interfaces, and spatial applications.
+          Computer Engineering graduate focused on developing practical
+          skills in network engineering, routing and switching,
+          infrastructure, troubleshooting, and network security. I also have
+          a background in software development and IoT, which allows me to
+          approach technical problems from both hardware and software
+          perspectives.
         </p>
 
+        {/* Buttons */}
         <div className="flex flex-wrap items-center gap-4 mb-12">
           <a
-            href="#projects"
+            href="#skills"
             className="flex items-center gap-2 bg-white text-black font-semibold text-sm px-6 py-3 rounded-full hover:bg-neutral-200 transition"
           >
-            View Projects <ArrowRight className="w-4 h-4" />
+            Explore My Skills
+            <ArrowRight className="w-4 h-4" />
           </a>
 
           <a
             href="#contact"
-            className="flex items-center gap-2 border border-neutral-800 bg-neutral-900 text-white font-semibold text-sm px-6 py-3 rounded-full hover:border-neutral-700 transition"
+            className="flex items-center gap-2 border border-neutral-800 bg-neutral-900 text-white font-semibold text-sm px-6 py-3 rounded-full hover:border-blue-500/40 transition"
           >
             Get in Touch
           </a>
         </div>
 
+        {/* Social Links */}
         <div className="flex items-center gap-6 text-neutral-400">
+
           <a
-            href="https://github.com"
+            href="https://github.com/sennyyyboy"
             target="_blank"
             rel="noreferrer"
             className="hover:text-white transition"
             aria-label="GitHub"
           >
-            <span className="text-sm font-semibold">GH</span>
+            <GithubIcon className="w-5 h-5" />
           </a>
 
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/quim-joram-reyes-juan-55b4b6340/"
             target="_blank"
             rel="noreferrer"
             className="hover:text-white transition"
             aria-label="LinkedIn"
           >
-            <span className="text-sm font-semibold">in</span>
+            <LinkedinIcon className="w-5 h-5" />
           </a>
 
           <a
-            href="mailto:example@gmail.com"
+            href="mailto:quimjoramjuan05@gmail.com"
             className="hover:text-white transition"
             aria-label="Email"
           >
             <Mail className="w-5 h-5" />
           </a>
+
         </div>
       </motion.div>
     </section>
